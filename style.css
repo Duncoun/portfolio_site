@@ -92,7 +92,9 @@ a { color: inherit; }
 }
 
 .foot {
-  margin-top: auto;
+  position: fixed;
+  right: 40px;
+  bottom: 24px;
   color: #ccc;
   font-size: 11px;
 }
@@ -186,9 +188,9 @@ main {
 
 .thumb {
   position: fixed;
-  right: 40px;
-  bottom: 40px;
-  width: 300px;
+  left: 30px;
+  bottom: 30px;
+  width: 260px;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border: 1px solid #000;
