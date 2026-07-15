@@ -1,0 +1,6 @@
+# Originaux haute résolution des photos — gardés en local, jamais publiés.
+# Les versions web optimisées sont dans photos/.
+photos_originals/
+
+# Réglages locaux de Claude Code (propres à cette machine)
+.claude/settings.local.json

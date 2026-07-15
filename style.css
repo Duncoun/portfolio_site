@@ -1,0 +1,318 @@
+/* ==========================================================================
+   Duncan Frenehard — Portfolio
+   Noir & blanc, épure maximale. Seul le contenu (miniatures, vidéos,
+   photos) apporte de la couleur.
+   ========================================================================== */
+
+/* Police de la colonne de gauche — embarquée avec le site pour que
+   tous les visiteurs (Windows, Mac, mobile) voient la même chose */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/inter-light.woff2") format("woff2");
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { background: #fff; color: #000; }
+
+body {
+  font-family: ui-monospace, "Cascadia Mono", "SF Mono", Consolas, Menlo, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  display: flex;
+  min-height: 100vh;
+}
+
+body.locked { overflow: hidden; }
+
+a { color: inherit; }
+
+/* --------------------------------------------------------------------------
+   Colonne de gauche : nom + contact
+   -------------------------------------------------------------------------- */
+
+.sidebar {
+  width: 320px;
+  flex-shrink: 0;
+  padding: 56px 48px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #000;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+}
+
+.sidebar h1 {
+  font-size: 20px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: #999;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #000;
+  width: 100%;
+  margin: 32px 0 0;
+}
+
+.contact {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.contact a {
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+  padding: 1px 2px;
+}
+
+.contact a:hover {
+  background: #000;
+  color: #fff;
+}
+
+.foot {
+  margin-top: auto;
+  color: #ccc;
+  font-size: 11px;
+}
+
+/* --------------------------------------------------------------------------
+   Explorateur
+   -------------------------------------------------------------------------- */
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 56px 48px;
+}
+
+.row {
+  display: grid;
+  /* la date garde sa largeur naturelle, jamais tronquée */
+  grid-template-columns: minmax(240px, 2.2fr) 1.3fr 1.3fr 0.8fr auto;
+  column-gap: 16px;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.cell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* En-têtes de colonnes (triables) */
+.row.header {
+  border-bottom: 1px solid #000;
+  color: #999;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  user-select: none;
+}
+
+.row.header .cell { cursor: pointer; }
+.row.header .cell:hover,
+.row.header .cell.active { color: #000; }
+
+.arrow { margin-left: 6px; }
+
+/* Dossiers */
+.row.folder {
+  cursor: pointer;
+  font-weight: 700;
+  user-select: none;
+}
+
+/* Le nom du dossier occupe toute la largeur : jamais tronqué */
+.row.folder .cell.name,
+.row.empty .cell.name { grid-column: 1 / -1; }
+
+.row.folder:hover .cell.name { text-decoration: underline; }
+
+.caret {
+  display: inline-block;
+  width: 20px;
+}
+
+.count {
+  margin-left: 12px;
+  color: #999;
+  font-weight: 400;
+}
+
+/* Projets */
+.row.project { cursor: pointer; }
+.row.project .cell.name { padding-left: 28px; }
+
+.ext, .muted { color: #999; }
+
+.row.project:hover {
+  background: #000;
+  color: #fff;
+}
+
+.row.project:hover .ext,
+.row.project:hover .muted { color: #aaa; }
+
+.row.empty .cell { color: #bbb; padding-left: 28px; }
+
+/* --------------------------------------------------------------------------
+   Miniature au survol
+   -------------------------------------------------------------------------- */
+
+.thumb {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  width: 300px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid #000;
+  background: #000;
+  z-index: 40;
+  pointer-events: none;
+  display: none;
+}
+
+.thumb.visible { display: block; }
+
+/* --------------------------------------------------------------------------
+   Overlays : lecteur vidéo et visionneuse photo
+   -------------------------------------------------------------------------- */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.overlay[hidden] { display: none; }
+
+.overlay-close {
+  position: absolute;
+  top: 20px;
+  right: 32px;
+  background: none;
+  border: none;
+  color: #fff;
+  font: inherit;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.overlay-close:hover { color: #999; }
+
+.overlay-caption {
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+}
+
+/* Lecteur */
+.player-frame {
+  width: min(1200px, 86vw);
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.player-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Visionneuse */
+#viewerImg {
+  max-width: 84vw;
+  max-height: 82vh;
+  object-fit: contain;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #fff;
+  font: inherit;
+  font-size: 26px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.nav:hover { color: #999; }
+.nav[hidden] { display: none; }
+
+#prev { left: 16px; }
+#next { right: 16px; }
+
+/* --------------------------------------------------------------------------
+   Mobile
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  body { flex-direction: column; }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 32px 24px;
+    border-right: none;
+    border-bottom: 1px solid #000;
+  }
+
+  .foot { display: none; }
+
+  main { padding: 24px 12px; }
+
+  .row {
+    /* la date garde sa largeur naturelle, jamais tronquée */
+    grid-template-columns: minmax(140px, 2fr) 1fr auto;
+    column-gap: 10px;
+    min-height: 44px; /* cible tactile confortable */
+  }
+
+  .cell.role,
+  .cell.duration { display: none; }
+
+  .thumb { display: none !important; }
+
+  #prev { left: 4px; }
+  #next { right: 4px; }
+}

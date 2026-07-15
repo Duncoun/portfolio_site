@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duncan Frenehard — Videographer</title>
+  <meta name="description" content="Portfolio of Duncan Frenehard, videographer. Videography and photography work.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <h1>Duncan<br>Frenehard</h1>
+    <p class="subtitle">Videographer<br>Photographer</p>
+
+    <hr class="divider">
+
+    <div class="contact">
+      <a href="mailto:duncan.frenehard@gmail.com">duncan.frenehard@gmail.com</a>
+      <!-- Ajoute d'autres liens ici si besoin, par exemple :
+      <a href="https://instagram.com/toncompte" target="_blank" rel="noopener">instagram</a>
+      <a href="https://youtube.com/@tachaine" target="_blank" rel="noopener">youtube</a>
+      -->
+    </div>
+
+    <p class="foot">&copy; 2026 Duncan Frenehard</p>
+  </aside>
+
+  <main>
+    <div class="explorer" id="explorer"></div>
+  </main>
+
+  <!-- Miniature au survol -->
+  <img id="thumb" class="thumb" alt="">
+
+  <!-- Lecteur vidéo -->
+  <div id="player" class="overlay" hidden>
+    <button class="overlay-close" data-close aria-label="Close">&times;</button>
+    <div class="player-frame">
+      <iframe id="playerFrame" title="Video player"
+              allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+              allowfullscreen></iframe>
+    </div>
+    <p class="overlay-caption" id="playerCaption"></p>
+  </div>
+
+  <!-- Visionneuse photo -->
+  <div id="viewer" class="overlay" hidden>
+    <button class="overlay-close" data-close aria-label="Close">&times;</button>
+    <button id="prev" class="nav" aria-label="Previous photo">&larr;</button>
+    <img id="viewerImg" alt="">
+    <button id="next" class="nav" aria-label="Next photo">&rarr;</button>
+    <p class="overlay-caption" id="viewerCaption"></p>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
