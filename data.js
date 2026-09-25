@@ -20,10 +20,6 @@
 //    date   : date au format AAAA-MM-JJ
 //    photos : liste des chemins vers les images, à placer dans le
 //             dossier photos/ (ex: "photos/ma_serie/01.jpg")
-//
-//  En attente (à ajouter quand prêts) :
-//    - YoungStar Factory (Editor, Colorist, 2017-07-20) : lien à retrouver
-//    - Spond 1, 2, 3 : en attente du lien
 // ==========================================================================
 
 const PROJECTS = {
@@ -188,7 +184,56 @@ const PROJECTS = {
       duration: "1:38",
       date: "2024-05-30",
       youtube: "iCw_V1B6_9Y"
+    },
+    {
+      name: "vietnam_26.mp4",
+      client: "Personal project",
+      role: "Videographer",
+      duration: "5:26",
+      date: "2026-09-06",
+      youtube: "m-D5Jbm9DU0"
+    },
+    {
+      name: "arc_audenge.mp4",
+      client: "Spond",
+      role: "Videographer",
+      duration: "1:03",
+      date: "2021-07-31",
+      youtube: "6NpzO0WMK9k"
+    },
+    {
+      name: "canoe_avranches.mp4",
+      client: "Spond",
+      role: "Videographer",
+      duration: "1:08",
+      date: "2023-09-22",
+      youtube: "_RYl6QO0i1Q"
+    },
+    {
+      name: "rameur_mulhouse.mp4",
+      client: "Spond",
+      role: "Videographer",
+      duration: "1:02",
+      date: "2022-08-08",
+      youtube: "fD_L_0D7JNY"
+    },
+    {
+      name: "rugby_mions.mp4",
+      client: "Spond",
+      role: "Videographer",
+      duration: "0:56",
+      date: "2021-12-11",
+      youtube: "j7xz6FLtZtQ"
+    },
+    {
+      name: "mix_with_the_masters_nkf.mp4",
+      client: "Rue_Boyer",
+      role: "Editor",
+      duration: "0:50",
+      date: "2026-04-08",
+      youtube: "S1dXr3bGL1A"
     }
+
   ],
 
   photography: [
@@ -247,8 +292,26 @@ const PROJECTS = {
       photos: [
         "photos/oiseaux/01.jpg",
         "photos/oiseaux/02.jpg",
-        "photos/oiseaux/03.jpg"
+        "photos/oiseaux/03.jpg",
+        "photos/oiseaux/04.jpg",
+        "photos/oiseaux/05.jpg",
+        "photos/oiseaux/06.jpg"
       ]
+    },
+    {
+      name: "eclipse",
+      client: "Personal project",
+      role: "Photographer",
+      date: "2026-08-12",
+      photos: [
+        "photos/eclipse/01.jpg",
+        "photos/eclipse/02.jpg",
+        "photos/eclipse/03.jpg",
+        "photos/eclipse/04.jpg",
+        "photos/eclipse/05.jpg",
+        "photos/eclipse/06.jpg",
+        "photos/eclipse/07.jpg",
+      ]     
     },
     {
       name: "portraits",
@@ -258,6 +321,18 @@ const PROJECTS = {
       photos: [
         "photos/portraits/01.jpg",
         "photos/portraits/02.jpg"
+      ]
+    },
+    {
+      name: "galicia",
+      client: "Personal project",
+      role: "Photographer",
+      date: "2026-09-07",
+      photos: [
+        "photos/galicia/01.jpg",
+        "photos/galicia/02.jpg",
+        "photos/galicia/03.jpg",
+        "photos/galicia/04.jpg"
       ]
     },
     {
